@@ -9,17 +9,17 @@ export default function Members({ MembersList }: { MembersList: Array<{ name: st
                 <ul className="flex flex-wrap justify-center">
                     {MembersList.map((member) => (
                         <li key={member.id} className="w-full mt-4">
-                            <div className="flex flex-row items-center justify-between w-full max-w-sm p-4 m-auto">
+                            <div className="flex flex-row items-center justify-between w-full max-w-xs p-4 m-auto">
                                 <Image
                                     src={`/members/${member.icon}`}
                                     alt={`${member.name} icon`}
                                     width={200}
                                     height={200}
-                                    className="w-1/4 object-cover rounded-full" />
+                                    className="w-1/3 object-cover rounded-full" />
                                 <p className="flex flex-col justify-center items-end">
-                                    <span className="text-xl">{member.name}</span>
+                                    <span className="text-2xl">{member.name}</span>
                                     <Link
-                                        className="text-sm text-slate-400 hover:underline"
+                                        className="text-lg text-slate-400 hover:underline"
                                         href={`https://x.com/${member.id}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
