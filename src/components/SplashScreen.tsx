@@ -32,7 +32,18 @@ export default function SplashScreen({
         const timeoutId = setTimeout(() => { setIsMounted(true) }, 10);
         
         const video = document.getElementById('movie') as HTMLVideoElement;
-        video.play();
+        video.play()
+            .then(() => {
+                console.log('play');
+            })
+            .catch((error) => {
+                console.error(error);
+                setIsMounted(false);
+                setTimeout(() => {
+                    finishLoading();
+                }, 200);
+                return;
+            });
     
         video.addEventListener('ended', () => {
             setIsMounted(false);
