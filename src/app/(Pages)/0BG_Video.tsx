@@ -2,7 +2,11 @@
 
 import { useEffect } from "react";
 
-export default function BackGroundVideo() {
+export default function BackGroundVideo({
+    setIsLowPerformance,
+}: {
+    setIsLowPerformance: (isLowPerformance: boolean) => void;
+}) {
     useEffect(() => {
         const video = document.getElementById('bg-movie') as HTMLVideoElement;
         video.play()
@@ -11,6 +15,7 @@ export default function BackGroundVideo() {
             })
             .catch((error) => {
                 console.error(error);
+                setIsLowPerformance(true);
                 // 画像に切り替える
                 const img = document.createElement('img');
                 img.src = '/sunulf-logo-1920-1080.png';
@@ -21,7 +26,7 @@ export default function BackGroundVideo() {
                 const video = document.getElementById('bg-movie') as HTMLVideoElement;
                 video.replaceWith(img);
             });
-    }, []);
+    }, [setIsLowPerformance]);
     return (
         <div className="fixed w-screen h-screen -z-50 overflow-hidden">
             <video

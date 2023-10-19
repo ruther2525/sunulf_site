@@ -1,8 +1,10 @@
+'use client';
 import Image from "next/image";
 import Link from "next/link";
 import Hero from "./1PageHero";
 import Members from "./2Members";
 import BackGroundVideo from "./0BG_Video";
+import { useState } from "react";
 
 const MembersList = [
     {
@@ -29,11 +31,12 @@ const MembersList = [
 
 
 export default function Page() {
+    const [isLowPerformance, setIsLowPerformance] = useState(false);
 
     return (
         <>
-            <BackGroundVideo />
-            <div className="backdrop-blur-lg">
+            <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
+            <div className={`${isLowPerformance ? "" : "backdrop-blur-lg"}`}>
                 <Hero />
                 <Members MembersList={MembersList} />
             </div>
