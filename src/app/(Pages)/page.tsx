@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Hero from "./1PageHero";
 import Members from "./2Members";
+import BackGroundVideo from "./0BG_Video";
 
 const MembersList = [
     {
@@ -31,17 +32,7 @@ export default function Page() {
 
     return (
         <>
-            <div className="fixed w-screen h-screen -z-50 overflow-hidden">
-                <video
-                    className="w-full h-full object-cover select-none"
-                    src="/sunulf-background.mp4"
-                    muted
-                    playsInline
-                    controls={false}
-                    loop={true}
-                    autoPlay={true}
-                />
-            </div>
+            <BackGroundVideo />
             <div className="backdrop-blur-lg">
                 <Hero />
                 <Members MembersList={MembersList} />
