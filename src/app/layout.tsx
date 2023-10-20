@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Loading from './loading';
+import { Suspense } from 'react';
 
 const title = 'SUNULF - Movie Creator Team';
 const description = 'SUNULFは映像クリエイターが集まったチームです。';
@@ -55,7 +57,9 @@ export default function RootLayout({
     return (
         <html lang="ja">
             <head />
-            {children}
+            <Suspense fallback={<Loading />}>
+                {children}
+            </Suspense>
         </html>
     )
 }

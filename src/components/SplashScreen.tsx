@@ -12,7 +12,7 @@ export default function SplashScreen({
     useEffect(() => {
         if(!isMounted) return;
 
-        const _isAlreadyLoaded = localStorage?.getItem('isLoaded');
+        const _isAlreadyLoaded = sessionStorage?.getItem('isLoaded');
         const isAlreadyLoaded = _isAlreadyLoaded ?
             (new Date()).getTime() - (new Date(_isAlreadyLoaded)).getTime()
                 < 1000 * 60 * 5
@@ -48,7 +48,7 @@ export default function SplashScreen({
         video.addEventListener('ended', () => {
             setIsMounted(false);
             setTimeout(() => {
-                localStorage?.setItem('isLoaded', (new Date()).toISOString());
+                sessionStorage?.setItem('isLoaded', (new Date()).toISOString());
                 finishLoading();
             }, 200);
         });

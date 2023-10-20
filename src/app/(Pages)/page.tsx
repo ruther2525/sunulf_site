@@ -5,6 +5,7 @@ import Hero from "./1PageHero";
 import Members from "./2Members";
 import BackGroundVideo from "./0BG_Video";
 import { useState } from "react";
+import NavBar from "@/components/Navigation";
 
 const MembersList = [
     {
@@ -35,9 +36,10 @@ export default function Page() {
 
     return (
         <>
-            <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
-            <div className={`${isLowPerformance ? "" : "backdrop-blur-lg"}`}>
-                <Hero />
+            <NavBar />
+            <div>
+                <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
+                <Hero className={`${isLowPerformance ? "backdrop-blur-md" : "backdrop-blur-lg"}`} />
                 <Members MembersList={MembersList} />
             </div>
         </>
