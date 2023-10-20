@@ -39,8 +39,10 @@ export default function Page() {
             <NavBar />
             <div>
                 <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
-                <Hero className={`${isLowPerformance ? "backdrop-blur-md" : "backdrop-blur-lg"}`} />
-                <Members MembersList={MembersList} />
+                <div className={`${isLowPerformance ? "backdrop-blur-md" : "backdrop-blur-lg"}`}>
+                    <Hero />
+                    <Members MembersList={MembersList} />
+                </div>
             </div>
         </>
     )

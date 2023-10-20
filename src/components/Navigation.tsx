@@ -6,7 +6,7 @@ export default function NavBar() {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 w-full pt-4 pb-4 mix-blend-difference">
+        <nav className="fixed top-0 left-0 right-0 z-40 w-full pt-4 pb-4 mix-blend-difference">
             <div className="w-full flex items-center justify-between flex-wrap max-w-lg m-auto">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <Image
