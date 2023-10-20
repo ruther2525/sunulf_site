@@ -15,16 +15,16 @@ export const metadata: Metadata = {
         description,
         type: 'website',
         locale: 'ja_JP',
-        url: 'https://sunulf.vercel.app/',
+        url: 'https://sunulf-site.vercel.app/',
         images: [
             {
-                url: 'https://sunulf.vercel.app/sunulf-logo-1920-1080.png',
+                url: 'https://sunulf-site.vercel.app/sunulf-logo-1920-1080.png',
                 width: 1920,
                 height: 1080,
                 alt: 'SUNULF',
             },
             {
-                url: 'https://sunulf.vercel.app/sunulf-logo.webp',
+                url: 'https://sunulf-site.vercel.app/sunulf-logo.webp',
                 width: 600,
                 height: 600,
                 alt: 'SUNULF',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         site: '@teameizo',
         images: [
             {
-                url: 'https://sunulf.vercel.app/sunulf-logo-1920-1080.png',
+                url: 'https://sunulf-site.vercel.app/sunulf-logo-1920-1080.png',
                 width: 1920,
                 height: 1080,
                 alt: 'SUNULF',
