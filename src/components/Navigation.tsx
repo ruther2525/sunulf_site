@@ -39,26 +39,45 @@ export default function NavBar() {
         return pathname.startsWith(href);
     }
 
-    const scrollEvent = (e: Event | null, _isMobileOpen: boolean) => {
-        const scroll = window.scrollY;
-        if (scroll > 100) {
-            setIsScroll(true);
-        } else if(!_isMobileOpen) {
-            setIsScroll(false);
-        }
-    }
-
+    
     useEffect(() => {
-        scrollEvent(null, isMobileOpen);
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        const resizeEvent = () => {
+            if(windowWidth !== window.innerWidth || windowHeight !== window.innerHeight) {
+                windowWidth = window.innerWidth;
+                windowHeight = window.innerHeight;
+            }
+        }
+        resizeEvent();
 
-        window.addEventListener("scroll", (e) => scrollEvent(e, isMobileOpen));
+        const scrollEvent = () => {
+            const scroll = window.scrollY;
+            if (scroll > 100) {
+                setIsScroll(true);
+            } else if(!isMobileOpen) {
+                setIsScroll(false);
+            }
+            
+            console.log(window.screenX, window.screenY, window.innerWidth, window.innerHeight);
+        }
+        scrollEvent();
+
+        window.addEventListener("resize", resizeEvent);
+
+        window.addEventListener("scroll", scrollEvent);
+        
         return () => {
-            window.removeEventListener("scroll", (e) => scrollEvent(e, isMobileOpen));
+            window.removeEventListener("resize", resizeEvent);
+            window.removeEventListener("scroll", scrollEvent)
         }
     }, [isMobileOpen]);
 
     return (
-        <nav className={clsx(styles.Top, isScroll ? styles._scroll : "")}>
+        <nav className={clsx(styles.Top,
+            isScroll ? styles._scroll : "",
+            isMobileOpen ? styles._open : "",
+        )}>
             <div className={styles._inner}>
                 <div className={styles.Logo_Top}>
                     <Image
@@ -68,10 +87,7 @@ export default function NavBar() {
                         height={20}
                     />
                 </div>
-                <div className={clsx(
-                    styles.Link_Top,
-                    isMobileOpen && isScroll ? styles._open : "",
-                )}>
+                <div className={styles.Link_Top}>
                     <button
                         className={styles.Link_button}
                         onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -89,8 +105,10 @@ export default function NavBar() {
                                             to={link.id}
                                             smooth={true}
                                             duration={500}
-                                            offset={-50}
-                                            className={styles.__link} >
+                                            offset={-20}
+                                            className={styles.__link}
+                                            onClick={() => setIsMobileOpen(false)}
+                                        >
                                             <span>{link.name}</span>
                                         </Scroll>
                                     ) : (

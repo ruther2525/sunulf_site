@@ -58,6 +58,7 @@
     background: transparent;
     border: 0;
     cursor: pointer;
+    outline: none;
 }
 
 .Link_button .__line {
@@ -65,18 +66,27 @@
     height: 1px;
     background-color: #fff;
     margin: 3px 0;
-    transition: all 0.3s ease-out;
+    transition: all 0.3s ease;
 }
 
 .Link_button:hover .__line {
     width: 22px;
-    transition: all 0.3s ease-in;
+}
+
+.Top._open .Link_button .__line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.Top._open .Link_button .__line:nth-child(2) {
+    opacity: 0;
+}
+.Top._open .Link_button .__line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .Link_Top {
     height: auto;
 }
-.Link_Top._open {
+.Top._open {
     height: auto;
 }
 
@@ -121,9 +131,6 @@
     transition: transform 0.1s ease;
     transform-origin: left center;
 }
-.Link_list .__link:hover {
-    color: #fff;
-}
 .Link_list .__link:hover span::after {
     transform: scaleX(1);
 }
@@ -146,19 +153,21 @@
     }
     .Link_list {
         width: 100vw;
-        height: calc(100vh - var(--navbar-height));
+        height: 100vh;
         position: fixed;
-        top: var(--navbar-height);
+        top: 0;
         left: 0;
+        z-index: -100;
         margin: 0;
         padding: 0;
         transform: translateX(100%);
+        background-color: rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(20px);
         transition: all 0.3s ease;
     }
     .Link_list .__inner {
         width: 100%;
-        height: calc(100% - var(--navbar-height));
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -178,12 +187,11 @@
         font-size: 20px;
         transition: all 0.3s ease;
     }
-    
     .Link_list .__item:not(:first-child) {
         margin-left: 0;
     }
 
-    .Link_Top._open .Link_list {
+    .Top._open .Link_list {
         transform: translateX(0px);
     }
 }
