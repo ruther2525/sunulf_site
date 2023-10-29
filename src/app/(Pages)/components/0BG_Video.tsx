@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 
+import styles from './BG.module.css';
+
 export default function BackGroundVideo({
     setIsLowPerformance,
 }: {
@@ -19,7 +21,7 @@ export default function BackGroundVideo({
                 // 画像に切り替える
                 const img = document.createElement('img');
                 img.src = '/sunulf-logo-1920-1080.png';
-                img.className = 'w-full h-full object-cover select-none';
+                img.className = styles.alternative_img;
                 img.id = 'bg-movie';
                 img.alt = 'background';
 
@@ -28,9 +30,9 @@ export default function BackGroundVideo({
             });
     }, [setIsLowPerformance]);
     return (
-        <div className="fixed w-screen h-screen -z-50 overflow-hidden">
+        <div className={styles.Top}>
             <video
-                className="w-full h-full object-cover select-none"
+                className={styles._inner}
                 src="/sunulf-background.mp4"
                 id="bg-movie"
                 muted

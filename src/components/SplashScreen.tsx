@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import styles from './Splash.module.css';
+import clsx from 'clsx';
+
 export default function SplashScreen({
     finishLoading,
 }: {
@@ -57,13 +60,15 @@ export default function SplashScreen({
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center w-screen h-screen bg-black transition-opacity duration-200 ease-in-out ${isMounted ? 'opacity-100' : 'opacity-0'}`}
+            className={clsx(
+                styles.Top,
+                isMounted ? '' : styles._hidden,
+            )}
             id='splash-screen'
         >
-            <div className="flex flex-col items-center justify-center w-full h-full overflow-hidden" id='splash-screen-wrapper'>
+            <div className={styles._vid_inner} id='splash-screen-wrapper'>
                 <video
                     id="movie"
-                    className="w-full h-full object-cover select-none"
                     src="/splash.mp4"
                     muted
                     playsInline

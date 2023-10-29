@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import SplashScreen from "@/components/SplashScreen";
 import { usePathname } from "next/navigation";
 
-import { IBM_Plex_Sans_JP } from 'next/font/google'
+import { IBM_Plex_Sans_JP } from 'next/font/google';
+
+import styles from './Top.module.css';
+import NavBar from "@/components/Navigation";
 
 const ibmplexsans = IBM_Plex_Sans_JP({
     weight: "300",
@@ -32,14 +35,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     font-family: ${ibmplexsans.variable};
                 }
             `}</style>
-            <body className="bg-black">
+            <body>
                 {isLoading && isRoot ? (
                     <SplashScreen finishLoading={() => {
                         setIsLoading(false)
                     }} />
                 ) : ''}
-                <div className="transition-opacity" id="page">
-                    <main className="w-screen min-h-screen text-white">
+                <div id="page">
+                    <NavBar />
+                    <main className={styles.Main}>
                         {children}
                     </main>
                 </div>

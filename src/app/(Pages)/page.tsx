@@ -1,11 +1,9 @@
 'use client';
-import Image from "next/image";
-import Link from "next/link";
-import Hero from "./1PageHero";
-import Members from "./2Members";
-import BackGroundVideo from "./0BG_Video";
+import Hero from "./components/1PageHero";
+import Members from "./components/2Members";
+import BackGroundVideo from "./components/0BG_Video";
 import { useState } from "react";
-import NavBar from "@/components/Navigation";
+import Works from "./components/3Works";
 
 const MembersList = [
     {
@@ -36,12 +34,12 @@ export default function Page() {
 
     return (
         <>
-            <NavBar />
             <div>
                 <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
                 <div className={`${isLowPerformance ? "backdrop-blur-md" : "backdrop-blur-lg"}`}>
-                    <Hero />
-                    <Members MembersList={MembersList} />
+                    <Hero id="home" />
+                    <Members id="members" MembersList={MembersList} />
+                    <Works id="works" />
                 </div>
             </div>
         </>

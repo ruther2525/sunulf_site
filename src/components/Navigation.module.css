@@ -1,0 +1,189 @@
+.Top {
+    width: 100%;
+    height: var(--navbar-height);
+    overflow-y: hidden;
+    position: fixed;
+    top: calc(var(--navbar-height) * -1);
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    box-shadow: 0px 0px 10px #000;
+    transition: all 0.3s ease;
+}
+
+.Top._scroll {
+    top: 0;
+}
+
+._inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-width: 1000px;
+    padding: 10px 20px;
+    margin: auto;
+}
+
+.Logo_Top {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    .Logo_Top {
+        margin-right: 0;
+    }
+}
+
+.Link_Top {
+    width: auto;
+}
+
+.Link_button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4px;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.Link_button .__line {
+    width: 20px;
+    height: 1px;
+    background-color: #fff;
+    margin: 3px 0;
+    transition: all 0.3s ease-out;
+}
+
+.Link_button:hover .__line {
+    width: 22px;
+    transition: all 0.3s ease-in;
+}
+
+.Link_Top {
+    height: auto;
+}
+.Link_Top._open {
+    height: auto;
+}
+
+.Link_list {
+    width: auto;
+}
+.Link_list .__inner {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.Link_list .__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    font-style: italic;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.Link_list .__link span {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+}
+
+.Link_list .__link span::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -5px;
+    display: block;
+    width: calc(100% + 10px);
+    height: 1px;
+    transform: scaleX(0);
+    background-color: #fff;
+    transition: transform 0.1s ease;
+    transform-origin: left center;
+}
+.Link_list .__link:hover {
+    color: #fff;
+}
+.Link_list .__link:hover span::after {
+    transform: scaleX(1);
+}
+.Link_list .__link:visited {
+    color: #fff;
+}
+
+.Link_list .__link._active span::after {
+    transform: scaleX(1);
+}
+
+.Link_list .__item:not(:first-child) {
+    margin-left: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .Link_button {
+        display: flex;
+    }
+    .Link_list {
+        width: 100vw;
+        height: calc(100vh - var(--navbar-height));
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateX(100%);
+        backdrop-filter: blur(20px);
+        transition: all 0.3s ease;
+    }
+    .Link_list .__inner {
+        width: 100%;
+        height: calc(100% - var(--navbar-height));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    .Link_list .__item {
+        width: 100%;
+        height: auto;
+        text-align: center;
+    }
+    .Link_list .__link {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        font-size: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .Link_list .__item:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .Link_Top._open .Link_list {
+        transform: translateX(0px);
+    }
+}

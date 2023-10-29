@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import '@acab/reset.css';
 import './globals.css'
 import Loading from './loading';
 import { Suspense } from 'react';
