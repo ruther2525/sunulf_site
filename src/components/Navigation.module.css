@@ -15,6 +15,10 @@
     box-shadow: 0px 0px 10px #000;
     transition: all 0.3s ease;
 }
+.Top._open {
+    background: transparent;
+    box-shadow: none;
+}
 
 .Top._scroll {
     top: 0;
@@ -69,9 +73,6 @@
     transition: all 0.3s ease;
 }
 
-.Link_button:hover .__line {
-    width: 22px;
-}
 
 .Top._open .Link_button .__line:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
@@ -84,10 +85,10 @@
 }
 
 .Link_Top {
-    height: auto;
+    display: block;
 }
 .Top._open {
-    height: auto;
+    display: block;
 }
 
 .Link_list {
