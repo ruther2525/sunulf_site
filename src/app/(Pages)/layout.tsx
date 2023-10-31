@@ -3,16 +3,9 @@ import React, { useEffect, useState } from "react";
 import SplashScreen from "@/components/SplashScreen";
 import { usePathname } from "next/navigation";
 
-import { IBM_Plex_Sans_JP } from 'next/font/google';
-
 import styles from './Top.module.css';
 import NavBar from "@/components/Navigation";
 
-const ibmplexsans = IBM_Plex_Sans_JP({
-    weight: "300",
-    subsets: ['latin'],
-    variable: '--font-ibmplexsans',
-});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -30,11 +23,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <style jsx global>{`
-                html: {
-                    font-family: ${ibmplexsans.variable};
-                }
-            `}</style>
             <body>
                 {isLoading && isRoot ? (
                     <SplashScreen finishLoading={() => {

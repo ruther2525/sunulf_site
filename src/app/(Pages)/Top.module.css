@@ -62,7 +62,7 @@
 }
 .Members__title {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     padding: 0;
 }
@@ -105,7 +105,7 @@
 
 .Members__list .__name {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 400;
     margin: 0;
     padding: 0;
 }
@@ -138,7 +138,7 @@
 
 .Works__title {
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 500;
     margin: 0;
     padding: 0;
 }

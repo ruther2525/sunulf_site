@@ -1,6 +1,7 @@
 body {
     background: linear-gradient(180deg, #000000 0%, #000000 100%);
     color: #fff;
+    font-family: var(--font-cavin), var(--font-ibmplexsans), sans-serif;
 }
 
 * {

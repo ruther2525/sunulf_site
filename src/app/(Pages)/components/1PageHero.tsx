@@ -10,7 +10,7 @@ const cavin = Cabin({
 
 export default function Hero({ id, className }: { id?: string, className?: string}) {
     return (
-        <section id={id} className={clsx(className, styles.Hero, cavin)}>
+        <section id={id} className={clsx(className, styles.Hero, cavin.className)}>
             <h1>SUNULF</h1>
             <p>Movie Creator Team</p>
         </section>
