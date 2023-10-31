@@ -4,11 +4,7 @@ import { useEffect } from "react";
 
 import styles from './BG.module.css';
 
-export default function BackGroundVideo({
-    setIsLowPerformance,
-}: {
-    setIsLowPerformance: (isLowPerformance: boolean) => void;
-}) {
+export default function BackGroundVideo() {
     useEffect(() => {
         const video = document.getElementById('bg-movie') as HTMLVideoElement;
         video.play()
@@ -17,7 +13,6 @@ export default function BackGroundVideo({
             })
             .catch((error) => {
                 console.error(error);
-                setIsLowPerformance(true);
                 // 画像に切り替える
                 const img = document.createElement('img');
                 img.src = '/sunulf-logo-1920-1080.png';
@@ -28,7 +23,7 @@ export default function BackGroundVideo({
                 const video = document.getElementById('bg-movie') as HTMLVideoElement;
                 video.replaceWith(img);
             });
-    }, [setIsLowPerformance]);
+    }, []);
     return (
         <div className={styles.Top}>
             <video

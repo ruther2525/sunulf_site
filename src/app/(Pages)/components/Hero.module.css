@@ -1,0 +1,27 @@
+
+.Hero {
+    width: 50vw;
+    height: 100vh;
+    padding-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(90deg, #010003 0%, rgba(0, 0, 0, .7) 50%, rgba(11, 0, 0, 0) 100%);
+}
+
+.Hero h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.Hero p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}

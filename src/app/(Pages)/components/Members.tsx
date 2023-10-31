@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import styles from "../Top.module.css";
+import styles from "./Members.module.css";
 
 export default function Members({ id, MembersList }: { id?: string, MembersList: Array<{ name: string, id: string, icon: string }> }) {
     return (

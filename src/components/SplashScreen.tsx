@@ -35,18 +35,22 @@ export default function SplashScreen({
         const timeoutId = setTimeout(() => { setIsMounted(true) }, 10);
         
         const video = document.getElementById('movie') as HTMLVideoElement;
-        video.play()
-            .then(() => {
-                console.log('play');
-            })
-            .catch((error) => {
-                console.error(error);
-                setIsMounted(false);
-                setTimeout(() => {
-                    finishLoading();
-                }, 200);
-                return;
-            });
+
+        setTimeout(() => {
+
+            video.play()
+                .then(() => {
+                    console.log('play');
+                })
+                .catch((error) => {
+                    console.error(error);
+                    setIsMounted(false);
+                    setTimeout(() => {
+                        finishLoading();
+                    }, 200);
+                    return;
+                });
+        }, 1000);
     
         video.addEventListener('ended', () => {
             setIsMounted(false);
@@ -59,24 +63,31 @@ export default function SplashScreen({
     }, [isMounted, finishLoading]);
 
     return (
-        <div
-            className={clsx(
-                styles.Top,
-                isMounted ? '' : styles._hidden,
-            )}
-            id='splash-screen'
-        >
-            <div className={styles._vid_inner} id='splash-screen-wrapper'>
-                <video
-                    id="movie"
-                    src="/splash.mp4"
-                    muted
-                    playsInline
-                    controls={false}
-                    loop={false}
-                    autoPlay={false}
-                />
+        <>
+            <style jsx global>{`
+            html: {
+                overflow: hidden;
+            }
+            `}</style>
+            <div
+                className={clsx(
+                    styles.Top,
+                    isMounted ? '' : styles._hidden,
+                )}
+                id='splash-screen'
+            >
+                <div className={styles._vid_inner} id='splash-screen-wrapper'>
+                    <video
+                        id="movie"
+                        src="/splash.mp4"
+                        muted
+                        playsInline
+                        controls={false}
+                        loop={false}
+                        autoPlay={false}
+                    />
+                </div>
             </div>
-        </div>
+        </>
     );
 }

@@ -77,9 +77,9 @@ export default function RootLayout({
             ibmplexsans.variable,
         )}>
             <head />
-            <Suspense fallback={<Loading />}>
+            <body>
                 {children}
-            </Suspense>
+            </body>
         </html>
     )
 }

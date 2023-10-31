@@ -1,9 +1,8 @@
-'use client';
-import Hero from "./components/1PageHero";
-import Members from "./components/2Members";
-import BackGroundVideo from "./components/0BG_Video";
-import { useState } from "react";
-import Works from "./components/3Works";
+import Hero from "./components/Hero";
+import Members from "./components/Members";
+import BackGroundVideo from "./components/BG_Video";
+import Works from "./components/Works";
+import { client } from "@/libs/microcms";
 
 const MembersList = [
     {
@@ -29,18 +28,27 @@ const MembersList = [
 ]
 
 
-export default function Page() {
-    const [isLowPerformance, setIsLowPerformance] = useState(false);
+export default async function Page() {
+    const WorksList = await client.get({
+        endpoint: "works",
+        customRequestInit: {
+            next: {
+                tags: ["microcms-works"],
+            },
+        },
+        queries: {
+            limit: 50,
+        },
+    });
+    console.log(WorksList);
 
     return (
         <>
+            <BackGroundVideo />
             <div>
-                <BackGroundVideo setIsLowPerformance={setIsLowPerformance} />
-                <div className={`${isLowPerformance ? "backdrop-blur-md" : "backdrop-blur-lg"}`}>
-                    <Hero id="home" />
-                    <Members id="members" MembersList={MembersList} />
-                    <Works id="works" />
-                </div>
+                <Hero id="home" />
+                <Members id="members" MembersList={MembersList} />
+                <Works id="works" WorksList={WorksList.contents} />
             </div>
         </>
     )

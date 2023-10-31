@@ -23,19 +23,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <body>
-                {isLoading && isRoot ? (
-                    <SplashScreen finishLoading={() => {
-                        setIsLoading(false)
-                    }} />
-                ) : ''}
-                <div id="page">
-                    <NavBar />
-                    <main className={styles.Main}>
-                        {children}
-                    </main>
-                </div>
-            </body>
+            {isLoading && isRoot ? (
+                <SplashScreen finishLoading={() => {
+                    setIsLoading(false)
+                }} />
+            ) : ''}
+            <div id="page">
+                <NavBar />
+                <main className={styles.Main}>
+                    {children}
+                </main>
+            </div>
         </>
     );
 }

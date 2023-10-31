@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from "../Top.module.css";
+import styles from "./Hero.module.css";
 
 import { Cabin } from "next/font/google";
 const cavin = Cabin({
