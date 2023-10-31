@@ -50,13 +50,32 @@ export const metadata: Metadata = {
 
 }
 
+import { Cabin, IBM_Plex_Sans_JP } from "next/font/google";
+import clsx from 'clsx';
+
+const cavin = Cabin({
+    display: "swap",
+    subsets: ["latin-ext"],
+    weight: "variable",
+    variable: '--font-cavin',
+})
+
+const ibmplexsans = IBM_Plex_Sans_JP({
+    weight: "300",
+    subsets: ['latin'],
+    variable: '--font-ibmplexsans',
+});
+
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
     return (
-        <html lang="ja">
+        <html lang="ja" className={clsx(
+            cavin.variable,
+            ibmplexsans.variable,
+        )}>
             <head />
             <Suspense fallback={<Loading />}>
                 {children}
