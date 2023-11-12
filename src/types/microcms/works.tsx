@@ -1,22 +1,26 @@
+export type WorksThumbnail = {
+    width: number,
+    height: number,
+    url: string
+};
+
+export type WorksSnapshot = {
+    width: number,
+    height: number,
+    url: string
+};
+
 export type Works = {
     id: string,
     slug: string,
     name: string,
-    thumb: {
-        width: number,
-        height: number,
-        url: string
-    },
+    thumb: WorksThumbnail,
     genre: string,
     tag: string[],
     credit: string,
     description: string | null,
     workUrl: string | null,
-    snapshots: Array<{
-        width: number,
-        height: number,
-        url: string
-    }>,
+    snapshots: WorksSnapshot[],
 };
 
 export type WorksResponse = {

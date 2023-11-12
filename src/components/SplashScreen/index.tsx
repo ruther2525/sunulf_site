@@ -20,10 +20,7 @@ export default function SplashScreen({
             (new Date()).getTime() - (new Date(_isAlreadyLoaded)).getTime()
                 < 1000 * 60 * 5
             : false;
-        console.log(new Date(_isAlreadyLoaded ? _isAlreadyLoaded : ''));
-        console.log(((new Date()).getTime() - (new Date(_isAlreadyLoaded ? _isAlreadyLoaded : '')).getTime()) / 1000 / 60);
-        console.log(isAlreadyLoaded);
-
+        
         if (isAlreadyLoaded) {
             setIsMounted(false);
             setTimeout(() => {
@@ -37,11 +34,7 @@ export default function SplashScreen({
         const video = document.getElementById('movie') as HTMLVideoElement;
 
         setTimeout(() => {
-
             video.play()
-                .then(() => {
-                    console.log('play');
-                })
                 .catch((error) => {
                     console.error(error);
                     setIsMounted(false);

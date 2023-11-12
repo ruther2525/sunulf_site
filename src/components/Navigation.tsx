@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -36,7 +37,8 @@ export default function NavBar() {
 
     const pathname = usePathname();
     const isSamePath = (href: string) => {
-        return pathname.startsWith(href);
+        console.log(pathname, href);
+        return pathname === href;
     }
 
     
@@ -58,8 +60,6 @@ export default function NavBar() {
             } else if(!isMobileOpen) {
                 setIsScroll(false);
             }
-            
-            console.log(window.screenX, window.screenY, window.innerWidth, window.innerHeight);
         }
         scrollEvent();
 
@@ -100,7 +100,7 @@ export default function NavBar() {
                         <ul className={styles.__inner}>
                             {LinkList.map((link) => (
                                 <li key={link.name} className={styles.__item}>
-                                    {link.id ? (
+                                    {(link.id && isSamePath(link.href)) ? (
                                         <Scroll
                                             to={link.id}
                                             smooth={true}
@@ -113,7 +113,7 @@ export default function NavBar() {
                                         </Scroll>
                                     ) : (
                                         <Link
-                                            href={link.href}
+                                            href={link.id ? `${link.href}#${link.id}` : link.href}
                                             className={styles.__link} >
                                             <span>{link.name}</span>
                                         </Link>

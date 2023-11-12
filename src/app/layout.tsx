@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import '@acab/reset.css';
 import './globals.css'
-import Loading from './loading';
-import { Suspense } from 'react';
 
 const title = 'SUNULF - Movie Creator Team';
 const description = 'SUNULFは映像クリエイターが集まったチームです。';
@@ -10,6 +8,7 @@ const description = 'SUNULFは映像クリエイターが集まったチーム�
 export const metadata: Metadata = {
     title,
     description,
+    metadataBase: new URL('https://sunulf-site.vercel.app/'),
 
     openGraph: {
         title,
@@ -52,6 +51,7 @@ export const metadata: Metadata = {
 
 import { Cabin, IBM_Plex_Sans_JP } from "next/font/google";
 import clsx from 'clsx';
+import NavBar from '@/components/Navigation';
 
 const cavin = Cabin({
     display: "swap",
@@ -66,10 +66,9 @@ const ibmplexsans = IBM_Plex_Sans_JP({
     variable: '--font-ibmplexsans',
 });
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
+export default function RootLayout(props: {
+    children: React.ReactNode,
+    modal: React.ReactNode,
 }) {
     return (
         <html lang="ja" className={clsx(
@@ -78,7 +77,9 @@ export default function RootLayout({
         )}>
             <head />
             <body>
-                {children}
+                <NavBar />
+                {props.children}
+                {props.modal}
             </body>
         </html>
     )

@@ -42,7 +42,7 @@
 
 .Members__list .__image {
     width: calc(100% / 4);
-    border-radius: 100%;
+    border-radius: 50%;
     object-fit: cover;
     overflow: hidden;
 }
