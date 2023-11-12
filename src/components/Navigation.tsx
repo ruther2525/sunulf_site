@@ -31,6 +31,11 @@ const LinkList = [
     },
 ];
 
+const AlwaysOpenList = [
+    "/contact",
+    "/works",
+]
+
 export default function NavBar() {
     const [isMobileOpen, setIsMobileOpen] = useState(false);
     const [isScroll, setIsScroll] = useState(false);
@@ -40,6 +45,7 @@ export default function NavBar() {
         console.log(pathname, href);
         return pathname === href;
     }
+    const isAlwaysOpen = AlwaysOpenList.some((path) => pathname.startsWith(path));
 
     
     useEffect(() => {
@@ -75,18 +81,21 @@ export default function NavBar() {
 
     return (
         <nav className={clsx(styles.Top,
-            isScroll ? styles._scroll : "",
+            isScroll || isAlwaysOpen ? styles._scroll : "",
             isMobileOpen ? styles._open : "",
         )}>
             <div className={styles._inner}>
-                <div className={styles.Logo_Top}>
+                <Link
+                    className={styles.Logo_Top}
+                    href="/"
+                >
                     <Image
                         src="/sunulf-logo-white.svg"
                         alt="logo"
                         width={100}
                         height={20}
                     />
-                </div>
+                </Link>
                 <div className={styles.Link_Top}>
                     <button
                         className={styles.Link_button}

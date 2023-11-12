@@ -1,0 +1,81 @@
+.Head {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: 0.6rem 0;
+}
+.genre {
+    width: fit-content;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+}
+.tag_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.tag {
+    margin: 0 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    color: #333;
+    background-color: #eee;
+    font-size: 0.8rem;
+    border: 1px solid #ccc;
+}
+.tag:hover {
+    background-color: #ddd;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    margin-top: 0.5rem;
+    margin-bottom: 4rem;
+    border: none;
+    background-color: #ccc;
+}
+
+.Body {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.credit {
+    font-size: 1rem;
+}
+
+
+.snapshots_wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.snapshots {
+    width: calc(100% / 3);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+@media screen and (max-width: 1400px) {
+    .snapshots {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .snapshots {
+        width: 100%;
+    }
+}

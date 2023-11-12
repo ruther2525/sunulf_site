@@ -21,6 +21,14 @@ export default async function WorksPage({ params: { slug } }: { params: { slug: 
     console.log(work);
 
     return (
-        <WorksComponent work={work} />
+        <div style={{
+            width: "100%",
+            height: "100%",
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 20px",
+        }}>
+            <WorksComponent work={work} />
+        </div>
     );
 }
