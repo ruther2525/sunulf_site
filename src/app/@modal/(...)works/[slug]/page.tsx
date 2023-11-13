@@ -18,6 +18,7 @@ export default async function WorksModal(
         customRequestInit: {
             next: {
                 tags: ["microcms-works"],
+                revalidate: 60,
             },
         },
     });

@@ -164,7 +164,7 @@
         transform: translateX(100%);
         background-color: rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(20px);
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease;
     }
     .Link_list .__inner {
         width: 100%;

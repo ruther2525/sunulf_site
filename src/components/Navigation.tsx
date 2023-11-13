@@ -41,13 +41,11 @@ export default function NavBar() {
     const [isScroll, setIsScroll] = useState(false);
 
     const pathname = usePathname();
-    const isSamePath = (href: string) => {
-        console.log(pathname, href);
-        return pathname === href;
-    }
+    const isSamePath = (href: string) => pathname === href;
+
     const isAlwaysOpen = AlwaysOpenList.some((path) => pathname.startsWith(path));
 
-    
+
     useEffect(() => {
         let windowWidth = window.innerWidth;
         let windowHeight = window.innerHeight;
@@ -123,7 +121,9 @@ export default function NavBar() {
                                     ) : (
                                         <Link
                                             href={link.id ? `${link.href}#${link.id}` : link.href}
-                                            className={styles.__link} >
+                                            className={styles.__link}
+                                            onClick={() => setIsMobileOpen(false)}
+                                        >
                                             <span>{link.name}</span>
                                         </Link>
                                     )}

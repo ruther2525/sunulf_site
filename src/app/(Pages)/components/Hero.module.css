@@ -30,12 +30,12 @@
     .Hero {
         width: 100vw;
         height: 100vh;
-        padding-left: 5vw;
+        padding-left: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background: transparent;
-        backdrop-filter: blur(2px);
+        backdrop-filter: blur(4px);
     }
 }

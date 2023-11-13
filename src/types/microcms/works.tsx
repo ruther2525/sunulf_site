@@ -10,6 +10,11 @@ export type WorksSnapshot = {
     url: string
 };
 
+export type WorkUrl = {
+    fieldId: string,
+    url: string
+};
+
 export type Works = {
     id: string,
     slug: string,
@@ -19,7 +24,7 @@ export type Works = {
     tag: string[],
     credit: string,
     description: string | null,
-    workUrl: string | null,
+    workUrls: WorkUrl[],
     snapshots: WorksSnapshot[],
 };
 
